@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Link, Switch } from 'react-router-dom';
 import Home from './components/Home';
 import About from './components/About';
 import Users from './components/Users';
+import StrictAccess from './StrictAccess';
 
 class App extends Component {
   render() {
@@ -22,6 +23,9 @@ class App extends Component {
           exact path="/users/:id"
           render={(props) => <Users {...props} greetingMessage={greeting}/>}
         />
+        <Route 
+          exact path="/strict-access"
+          render={(props) => <StrictAccess {...props} user={'joao'} password={'1234'} />} />
         <Route exact path="/about" component={About} />
         <Route exact path="/" component={Home} />
       </Switch>
